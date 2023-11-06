@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import userImg from "/user.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
-import { IoIosArrowDown } from "react-icons/io";
 import logo from "/logo.png"
 
 
@@ -34,10 +33,15 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
 
-    console.log(user)
 
 
     const links = <>
+
+        <li><NavLink to='/'
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
+            }
+        >Home</NavLink></li>
 
         <li><NavLink to='/create-assignment'
             className={({ isActive, isPending }) =>
@@ -54,7 +58,9 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
         >My Assignment </NavLink></li>
-        <li><NavLink to='/submitted-assignment'
+
+
+        {/* <li><NavLink to='/submitted-assignment'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
@@ -68,7 +74,7 @@ const Navbar = () => {
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
-        >View single Assignment</NavLink></li>
+        >View single Assignment</NavLink></li> */}
 
 
     </>
@@ -104,24 +110,11 @@ const Navbar = () => {
 
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-5 px-1">
-                    <li><NavLink to='/'
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
-                        }
-                    >Home</NavLink></li>
-                </ul>
-            </div>
-            <div className="dropdown">
-                <label tabIndex={0} className="hover:cursor-pointer mx-3 hidden lg:flex">
-                    <div className="flex items-center gap-2">
-                        <p>Assignments</p>
-                        <IoIosArrowDown></IoIosArrowDown>
-                    </div>
-                </label>
-                <ul tabIndex={0} className=" menu-sm dropdown-content text-[#363636] mt-3 z-[1] p-2 bg-base-100 w-52">
                     {links}
                 </ul>
             </div>
+
+
             <div className="navbar-end">
                 <input type="checkbox"
                     onChange={toggleTheme}
