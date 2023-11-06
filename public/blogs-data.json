@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "title": "The Importance of Regular Exercise",
+        "description": "Learn why regular exercise is crucial for maintaining a healthy lifestyle.",
+        "author": "John Doe",
+        "image": "https://i.ibb.co/h7n1JKz/strong-man-training-gym.jpg",
+        "authorImage": "https://i.ibb.co/097SvVm/photo-1573496359142-b8d87734a5a2-auto-format-fit-max-q-80-blend-000000-blend-alpha-10-blend-mode-nor.jpg"
+      },
+    {
+      "id": 2,
+      "title": "Healthy Eating Habits for a Balanced Life",
+      "description": "Discover the key dietary habits that contribute to a balanced and nutritious life.",
+      "author": "Jane Smith",
+      "image": "https://i.ibb.co/Qd4nkpT/woman-eating-healthy.jpg",
+      "authorImage": "https://i.ibb.co/G99KMH5/photo-1637684666587-91e51b10a555-auto-format-fit-max-q-80-blend-000000-blend-alpha-10-blend-mode-nor.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Tips for Better Sleep and Mental Health",
+      "description": "Explore practical tips for improving sleep quality and maintaining mental well-being.",
+      "author": "Alex Johnson",
+      "image": "https://i.ibb.co/chzCgyL/man-sleeping-bed-with-soft-daylight.jpg",
+      "authorImage": "https://i.ibb.co/c2K2hrG/photo-1610631066894-62452ccb927c-auto-format-fit-max-q-80-blend-000000-blend-alpha-10-blend-mode-nor.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Exploring: Benefits for Mind & Body",
+      "description": "Learn about the positive impact of spending time in nature on both the mind and body.",
+      "author": "Emma Davis",
+      "image": "https://i.ibb.co/gVDDySc/backpacker-standing-sunrise-viewpoint-ja-bo-village-mae-hong-son-province-thailand.jpg",
+      "authorImage": "https://i.ibb.co/zGcpJps/photo-1480429370139-e0132c086e2a-auto-format-fit-max-q-80-blend-000000-blend-alpha-10-blend-mode-nor.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Meditation: Finding Inner Peace",
+      "description": "Discover the practice of mindfulness meditation and its profound effects on inner peace.",
+      "author": "Michael Brown",
+      "image": "https://i.ibb.co/mvvhjKP/young-beautiful-woman-doing-yoga-nature.jpg",
+      "authorImage": "https://i.ibb.co/g9ctxdV/photo-1600273759837-a4d4abb62142-auto-format-fit-max-q-80-blend-000000-blend-alpha-10-blend-mode-nor.jpg"
+    }
+  ]
+  

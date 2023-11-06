@@ -5,9 +5,9 @@ import { CiLocationOn } from 'react-icons/ci';
 const Footer = () => {
     return (
         <footer className='mt-20'>
-            <footer className='bg-[#16eead] p-5 flex justify-around text-white'>
+            <footer className='bg-[#16eead] p-5 flex flex-col md:flex-row justify-around text-white'>
                 <h1 className='text-2xl font-bold'>Get hands on great assignment</h1>
-                <div className='flex items-center gap-5'>
+                <div className='flex flex-col md:flex-row items-center gap-5'>
                     <h1 className='font-bold'>Follow us on</h1>
                     <div className='flex items-center gap-3'>
                         <a href=""><img className='w-7' src="https://i.ibb.co/Wskp7s4/facebook.png" alt="" /></a>
