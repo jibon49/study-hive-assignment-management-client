@@ -39,22 +39,22 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to='/'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-[#eb1c3a] font-bold" : ""
+                isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
         >Home</NavLink></li>
         <li><NavLink to='/add-product'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-[#eb1c3a] font-bold" : ""
+                isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
         >Add Product</NavLink></li>
         <li><NavLink to='/my-cart'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-[#eb1c3a] font-bold" : ""
+                isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
         >My Cart</NavLink></li>
         <li><NavLink to='/all-products'
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-[#eb1c3a] font-bold" : ""
+                isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
         >All Products</NavLink></li>
 
@@ -79,7 +79,7 @@ const handleLogout=()=>{
                         {links}
                     </ul>
                 </div>
-                <a className=" normal-case font-extrabold text-xl text-[#eb1c3a]">TechBay</a>
+                <a className=" normal-case font-extrabold text-xl text-[#16eead]">TechBay</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-5 px-1">
@@ -96,12 +96,12 @@ const handleLogout=()=>{
                         <><img className="w-10 h-10 rounded-full bg-fit mr-5" src={`${user.photoURL
                         }`} alt="" />
                         <p className="mr-2">{user.displayName}</p>
-                            <button onClick={handleLogout} className="hover:text-[#eb1c3a] font-semibold">Logout</button>
+                            <button onClick={handleLogout} className="hover:text-[#16eead] font-semibold">Logout</button>
                             </>
                         :
                         <>
                             <img className="w-10 h-10 mr-5" src={userImg} alt="" />
-                            <NavLink to="/login" className="hover:text-[#eb1c3a] font-semibold">Login</NavLink></>
+                            <NavLink to="/login" className="hover:text-[#16eead] font-semibold">Login</NavLink></>
                 }
             </div>
         </div>

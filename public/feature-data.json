@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "icon": "https://i.ibb.co/NV885Mn/collaboration.png",
+      "title": "Collaborative Assignments",
+      "description": "Work together with your peers on assignments in real-time, enhancing learning and teamwork skills."
+    },
+    {
+      "id": 2,
+      "icon": "https://i.ibb.co/vsfPDHQ/convenient.png",
+      "title": "Effortless Submission",
+      "description": "Submit assignments seamlessly through our user-friendly interface, saving you time and effort."
+    },
+    {
+      "id": 3,
+      "icon": "https://i.ibb.co/BZjg6fG/exam.png",
+      "title": "Grading Made Simple",
+      "description": "Easily evaluate and grade assignments, providing constructive feedback to your peers."
+    },
+    {
+      "id": 4,
+      "icon": "https://i.ibb.co/QdJKnXn/growth.png",
+      "title": "Assignment Difficulty Levels",
+      "description": "Set assignment difficulty levels (easy, medium, hard) to challenge students at the right level of complexity."
+    },
+    {
+      "id": 5,
+      "icon": "https://i.ibb.co/xJgN5vD/calendar-1.png",
+      "title": "Deadline Management",
+      "description": "Stay organized with clear due dates for assignments, ensuring timely submissions and assessments."
+    },
+    {
+      "id": 6,
+      "icon": "https://i.ibb.co/wYrpmcR/feedback.png",
+      "title": "Interactive Feedback",
+      "description": "Provide detailed feedback on assignments, promoting a culture of continuous improvement and learning."
+    }
+  ]
+  

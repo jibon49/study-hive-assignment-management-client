@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "question": "What is the purpose of this platform?",
+      "answer": "This platform aims to facilitate collaborative learning by allowing users to create and complete group assignments in an online environment. It promotes teamwork and enhances the learning experience."
+    },
+    {
+      "id": 2,
+      "question": "How do I create a new assignment?",
+      "answer": "To create a new assignment, navigate to the 'Create Assignment' page and fill in the required details such as title, description, marks, difficulty level, and due date. Click 'Submit' to create the assignment."
+    },
+    {
+      "id": 3,
+      "question": "Can I invite specific users to join my study group?",
+      "answer": "Yes, you can invite specific users to join your study group. Navigate to the 'Invite Members' section within your group, enter their email addresses, and send out the invitations. Once accepted, they will be part of your group."
+    },
+    {
+      "id": 4,
+      "question": "How do I submit an assignment?",
+      "answer": "To submit an assignment, go to the assignment details page and click on the 'Submit Assignment' button. Fill in the required information, such as the PDF link and any additional notes, and click 'Submit' to complete the submission."
+    },
+    {
+      "id": 5,
+      "question": "How are assignments graded and assessed?",
+      "answer": "Assignments are graded by the assigned examiner based on the criteria provided. Examiners will review the submitted work, provide feedback, and assign a grade. Users can view their grades and feedback in the 'My Assignments' section."
+    },
+    {
+      "id": 6,
+      "question": "Is it possible to update or edit an assignment once it's created?",
+      "answer": "Yes, users can update or edit an assignment after it has been created. Navigate to the 'Update Assignment' page, select the assignment you want to edit, make the necessary changes, and click 'Update Assignment' to save the updates."
+    },
+    {
+      "id": 7,
+      "question": "What are the different difficulty levels for assignments?",
+      "answer": "Assignments can be categorized into three difficulty levels: easy, medium, and hard. These levels help users identify the complexity of the assignment and choose tasks that align with their skill level and learning objectives."
+    }
+  ]
+  
