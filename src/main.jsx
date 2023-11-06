@@ -12,6 +12,9 @@ import Home from './Components/HomePage/Home/Home.jsx';
 import Login from './Components/Login/Login.jsx';
 import AuthProviders from './AuthProviders/AuthProviders.jsx';
 import Register from './Components/Register/Register.jsx';
+import CreateAssignment from './Components/Assignments/CreateAssignment/CreateAssignment.jsx';
+import AllAssignment from './Components/Assignments/AllAssignment/AllAssignment';
+import MyAssignment from './Components/Assignments/MyAssignment/MyAssignment';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +33,18 @@ const router = createBrowserRouter([
       {
         path:"register",
         element:<Register></Register>
+      },
+      {
+        path:"create-assignment",
+        element:<CreateAssignment></CreateAssignment>
+      },
+      {
+        path:"all-assignment",
+        element:<AllAssignment></AllAssignment>
+      },
+      {
+        path:"my-assignment",
+        element:<MyAssignment></MyAssignment>
       }
     ]
   },

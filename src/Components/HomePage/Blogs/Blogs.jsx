@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import background from "/blob-scene-haikei.svg"
 
-import { FreeMode, Pagination, Navigation } from 'swiper/modules';
+import { FreeMode, Pagination} from 'swiper/modules';
 import { useState, useEffect } from 'react';
 
 const Blogs = () => {
@@ -53,13 +53,14 @@ const Blogs = () => {
                             <img className='rounded-lg h-[433px]' style={{ height: '400px' }} src={blog.image} alt="" />
                             <div className="card-body text-center">
                                 <h2 className="text-xl text-start font-bold mb-2">{blog.title}</h2>
+                                <hr />
                                 <p className='text-start'>{blog.description}</p>
                                 <div className='flex items-center justify-between'>
                                     <div className="flex items-center mb-2">
                                         <img src={blog.authorImage} alt={blog.author} className="w-8 h-8 rounded-full mr-2 object-cover" />
                                         <span className="text-gray-800 font-bold">{blog.author}</span>
                                     </div>
-                                    <button className='rounded-3xl py-2 px-5 font-semibold text-white bg-[#16eead]'>Read More</button>
+                                    <button className='rounded-3xl py-2 px-3 font-semibold text-white bg-[#16eead]'>Read More</button>
                                 </div>
                             </div>
                         </div>
