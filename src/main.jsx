@@ -31,20 +31,21 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path:"register",
-        element:<Register></Register>
+        path: "register",
+        element: <Register></Register>
       },
       {
-        path:"create-assignment",
-        element:<CreateAssignment></CreateAssignment>
+        path: "create-assignment",
+        element: <CreateAssignment></CreateAssignment>
       },
       {
-        path:"all-assignment",
-        element:<AllAssignment></AllAssignment>
+        path: "all-assignment",
+        element: <AllAssignment></AllAssignment>,
+        loader: () => fetch('http://localhost:5000/assignments')
       },
       {
-        path:"my-assignment",
-        element:<MyAssignment></MyAssignment>
+        path: "my-assignment",
+        element: <MyAssignment></MyAssignment>
       }
     ]
   },
