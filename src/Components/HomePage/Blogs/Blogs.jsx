@@ -54,9 +54,12 @@ const Blogs = () => {
                             <div className="card-body text-center">
                                 <h2 className="text-xl text-start font-bold mb-2">{blog.title}</h2>
                                 <p className='text-start'>{blog.description}</p>
-                                <div className="flex items-center mb-2">
-                                    <img src={blog.authorImage} alt={blog.author} className="w-8 h-8 rounded-full mr-2 object-cover" />
-                                    <span className="text-gray-800">{blog.author}</span>
+                                <div className='flex items-center justify-between'>
+                                    <div className="flex items-center mb-2">
+                                        <img src={blog.authorImage} alt={blog.author} className="w-8 h-8 rounded-full mr-2 object-cover" />
+                                        <span className="text-gray-800 font-bold">{blog.author}</span>
+                                    </div>
+                                    <button className='rounded-3xl py-2 px-5 font-semibold text-white bg-[#16eead]'>Read More</button>
                                 </div>
                             </div>
                         </div>
