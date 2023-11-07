@@ -18,6 +18,7 @@ import MyAssignment from './Components/Assignments/MyAssignment/MyAssignment';
 import UpdateAssignment from './Components/Assignments/UpdateAssignment/UpdateAssignment.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import ViewAssignment from './Components/Assignments/ViewAssignment/ViewAssignment.jsx';
+import SubmittedAssignment from './Components/Assignments/SubmittedAssignment/SubmittedAssignment.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
         element: <CreateAssignment></CreateAssignment>
       },
       {
+        path: "submitted-assignment",
+        element: <SubmittedAssignment></SubmittedAssignment>,
+        loader: () => fetch('http://localhost:5000/submitted')
+      },
+      {
         path: "all-assignment",
         element: <AllAssignment></AllAssignment>,
         loader: () => fetch('http://localhost:5000/assignments')
@@ -49,13 +55,13 @@ const router = createBrowserRouter([
       {
         path: "update-assignment/:id",
         element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
 
       },
       {
         path: "view-assignment/:id",
         element: <PrivateRoute><ViewAssignment></ViewAssignment></PrivateRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
 
       },
       {

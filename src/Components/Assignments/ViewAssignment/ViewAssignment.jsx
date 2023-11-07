@@ -7,12 +7,14 @@ import Swal from "sweetalert2";
 
 
 const ViewAssignment = () => {
+    
 
     const navigate = useNavigate();
     const assignment = useLoaderData();
     const { user } = useContext(AuthContext)
     const currentUserEmail = user.email
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const examineeName = user.displayName
 
     const { _id, assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail } = assignment;
 
@@ -37,7 +39,7 @@ const ViewAssignment = () => {
         console.log(upDescription, link)
 
 
-        const submittedAssignment = { assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail, upDescription, link, currentUserEmail }
+        const submittedAssignment = { assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail, upDescription, link, currentUserEmail,examineeName }
 
         console.log(submittedAssignment)
 

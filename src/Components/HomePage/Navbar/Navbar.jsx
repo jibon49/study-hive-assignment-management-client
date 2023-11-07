@@ -60,22 +60,11 @@ const Navbar = () => {
         >My Assignment </NavLink></li>
 
 
-        {/* <li><NavLink to='/submitted-assignment'
+        <li><NavLink to='/submitted-assignment'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
         >Submitted Assignment</NavLink></li>
-        <li><NavLink to='/update-assignment'
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
-            }
-        >Update Assignment</NavLink></li>
-        <li><NavLink to='/single-assignment'
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
-            }
-        >View single Assignment</NavLink></li> */}
-
 
     </>
 
