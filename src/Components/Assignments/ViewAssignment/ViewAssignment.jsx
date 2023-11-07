@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
 import Swal from "sweetalert2";
 
@@ -8,12 +8,13 @@ import Swal from "sweetalert2";
 
 const ViewAssignment = () => {
 
+    const navigate = useNavigate();
     const assignment = useLoaderData();
     const { user } = useContext(AuthContext)
     const currentUserEmail = user.email
     const [hasSubmitted, setHasSubmitted] = useState(false)
 
-    const { assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail } = assignment;
+    const { _id, assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail } = assignment;
 
     const [alreadySubmit, setAlreadySubmit] = useState([]);
 
@@ -43,7 +44,7 @@ const ViewAssignment = () => {
 
         const inSubmit = alreadySubmit.find(assign => (assign.assignmentId === assignmentId) && (assign.currentUserEmail === currentUserEmail))
 
-        if(hasSubmitted){
+        if (hasSubmitted) {
             document.getElementById('my_modal_1').close();
             Swal.fire({
                 title: 'Error!',
@@ -80,15 +81,61 @@ const ViewAssignment = () => {
                         setHasSubmitted(true)
                     }
                 })
-                
+
         }
 
-        
+
     }
 
-    useEffect(()=>{
+    const handleDelete = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                if (currentUserEmail === creatorEmail) {
+                    fetch(`http://localhost:5000/assignments/${_id}`, {
+                        method: "DELETE"
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            if (data.deletedCount > 0) {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Assignment has been deleted.',
+                                    'success'
+                                )
+                                navigate('/all-assignment')
+                            }
+                        })
+                }
+
+                else{
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'You dont have permission to delete this assignment',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+
+
+            }
+        })
+    }
+
+
+
+    useEffect(() => {
         setHasSubmitted(false)
-    },[assignment])  
+    }, [assignment])
 
     return (
         <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-8">
@@ -123,7 +170,7 @@ const ViewAssignment = () => {
                         <div className="modal-box">
                             <h3 className="font-bold text-lg">Upload Assignment</h3>
 
-                            <button onClick={()=>document.getElementById('my_modal_1').close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            <button onClick={() => document.getElementById('my_modal_1').close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 
                             <form onSubmit={handleSubmit}>
                                 <div className="form-control mb-5">
@@ -161,7 +208,7 @@ const ViewAssignment = () => {
                     </dialog>
 
 
-                    <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
+                    <button onClick={handleDelete} className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
                         Delete Assignment
                     </button>
                 </div>
