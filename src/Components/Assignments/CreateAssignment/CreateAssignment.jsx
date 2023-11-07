@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
+import { v4 as uuidv4 } from 'uuid';
 
 import Swal from 'sweetalert2'
 import axios from 'axios';
@@ -13,6 +14,7 @@ const CreateAssignment = () => {
     const { user } = useContext(AuthContext)
 
     const [dueDate, setDueDate] = useState(null)
+    const assignmentId = uuidv4();
 
     const handleAddAssignment = e => {
         e.preventDefault();
@@ -27,7 +29,7 @@ const CreateAssignment = () => {
         const formattedDueDate = dueDate ? dueDate.toLocaleString() : '';
 
 
-        const createAssignment = { title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail }
+        const createAssignment = {assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail }
 
 
 

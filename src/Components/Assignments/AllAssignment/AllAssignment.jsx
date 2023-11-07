@@ -102,9 +102,11 @@ const AllAssignment = () => {
                                     <span className="text-sm capitalize font-medium text-gray-800 ml-2">{assignment.difficulty}</span>
                                 </div>
                                 <div className="mt-4 flex justify-between">
-                                    <button className="bg-[#16eead] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
-                                        View Assignment
-                                    </button>
+                                    <Link to={`/view-assignment/${assignment._id}`}>
+                                        <button className="bg-[#16eead] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
+                                            View Assignment
+                                        </button>
+                                    </Link>
                                     <Link to={`/update-assignment/${assignment._id}`}>
                                         <button className="bg-[#16eead] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
                                             Update Assignment
