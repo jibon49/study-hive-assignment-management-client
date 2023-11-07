@@ -15,6 +15,7 @@ import Register from './Components/Register/Register.jsx';
 import CreateAssignment from './Components/Assignments/CreateAssignment/CreateAssignment.jsx';
 import AllAssignment from './Components/Assignments/AllAssignment/AllAssignment';
 import MyAssignment from './Components/Assignments/MyAssignment/MyAssignment';
+import UpdateAssignment from './Components/Assignments/UpdateAssignment/UpdateAssignment.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
         path: "all-assignment",
         element: <AllAssignment></AllAssignment>,
         loader: () => fetch('http://localhost:5000/assignments')
+      },
+      {
+        path: "update-assignment/:id",
+        element: <UpdateAssignment></UpdateAssignment>,
+        loader:({params})=> fetch(`http://localhost:5000/assignment/${params.id}`)
+
       },
       {
         path: "my-assignment",

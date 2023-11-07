@@ -46,7 +46,7 @@ const Footer = () => {
                     </div>
                     <div className='flex items-center gap-3'>
                         <HiOutlineMailOpen className='text-2xl'></HiOutlineMailOpen>
-                        <a className="link link-hover hover:text-[#16eead]">info@TechBay.com</a>
+                        <a className="link link-hover hover:text-[#16eead]">info@studyhive.com</a>
                     </div>
                     <div className='flex items-center gap-3'>
                         <CiLocationOn className='text-2xl'></CiLocationOn>
@@ -58,7 +58,7 @@ const Footer = () => {
             </footer>
             <aside className="text-center p-5">
                 <hr className="p-2" />
-                <p>Copyright © 2023 - All right reserved by TechBay Ltd</p>
+                <p>Copyright © 2023 - All right reserved by StudyHive Ltd</p>
             </aside>
         </footer>
     );
