@@ -7,7 +7,7 @@ import { app } from '../../firebase_config';
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+
 
 
 
@@ -38,19 +38,9 @@ const Login = () => {
                 confirmButtonText: 'Cool'
               })
             navigate(location?.state ? location.state : '/')
-
-            const userMail = {email};
             // token
 
-            axios.post('http://localhost:5000/jwt', userMail,
-            {withCredentials:true})
-            .then(res => {
-                console.log(res.data.success)
-                if(res.data.success){
-                    navigate(location?.state ? location.state : '/')
-                }
-
-            })
+            
             
         })
         .catch(error => {

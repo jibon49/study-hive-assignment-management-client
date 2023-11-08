@@ -23,7 +23,9 @@ const AllAssignment = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/pagination-assignments?page=${currentPage}&size=${itemsPerPage}`)
+        axios.get(`http://localhost:5000/pagination-assignments?page=${currentPage}&size=${itemsPerPage}`,
+        {withCredentials:true}
+        )
             .then(data => {
                 setAllAssignments(data.data)
             })

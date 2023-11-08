@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { app } from "../firebase_config";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 export const AuthContext = createContext(null)
 
@@ -13,14 +14,38 @@ const AuthProviders = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+            const userEmail = currentUser?.email || user?.email;
+            const loggedEmail = { email: userEmail }
             setUser(currentUser);
             setLoading(false);
             console.log(currentUser);
+
+            if (currentUser) {
+                axios.post('http://localhost:5000/jwt', loggedEmail,
+                    { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data.success)
+                        if (res.data.success) {
+                            console.log('successfully created jwt')
+                        }
+
+                    })
+            }
+
+            else{
+                axios.post('http://localhost:5000/logout',loggedEmail, {withCredentials:true})
+                .then(res=>{
+                    console.log(res)
+                })
+            }
+            
         })
+        
         return unSubscribe;
-    }, []) 
-    
+    }, [])
+
 
 
     const createUser = (email, password, name, photoUrl) => {

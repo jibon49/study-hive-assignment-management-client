@@ -21,7 +21,9 @@ const ViewAssignment = () => {
     const [alreadySubmit, setAlreadySubmit] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/submitted')
+        fetch('http://localhost:5000/submitted',
+        {credentials:"include"}
+        )
             .then(res => res.json())
             .then(data => {
                 setAlreadySubmit(data)

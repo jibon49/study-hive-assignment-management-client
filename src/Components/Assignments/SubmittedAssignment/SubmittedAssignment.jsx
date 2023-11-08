@@ -27,7 +27,9 @@ const SubmittedAssignment = () => {
 
         console.log(assignment, marks, examinersFeedback)
 
-        fetch(`http://localhost:5000/submitted/${id}`, {
+        fetch(`http://localhost:5000/submitted/${id}`,
+        {credentials:"include"},
+        {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

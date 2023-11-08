@@ -20,7 +20,7 @@ const MyAssignment = () => {
     useEffect(() => {
 
         if (!loading) {
-            fetch(url)
+            fetch(url, {credentials:'include'})
                 .then(res => res.json())
                 .then(data => setMyAssignments(data))
         }
