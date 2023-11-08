@@ -15,8 +15,12 @@ const CreateAssignment = () => {
 
     const [dueDate, setDueDate] = useState(null)
     const assignmentId = uuidv4();
+    
 
     const handleAddAssignment = e => {
+        let status = "pending"
+        let examinersFeedback = ""
+        let obtainedMarks = ""
         e.preventDefault();
         const form = e.target;
 
@@ -29,7 +33,7 @@ const CreateAssignment = () => {
         const formattedDueDate = dueDate ? dueDate.toLocaleString() : '';
 
 
-        const createAssignment = {assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail }
+        const createAssignment = {assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail, status, examinersFeedback, obtainedMarks }
 
 
 

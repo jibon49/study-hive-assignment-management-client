@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 
 const ViewAssignment = () => {
-    
+
 
     const navigate = useNavigate();
     const assignment = useLoaderData();
@@ -16,7 +16,7 @@ const ViewAssignment = () => {
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const examineeName = user.displayName
 
-    const { _id, assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail } = assignment;
+    const { _id, assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail, status, examinersFeedback, obtainedMarks } = assignment;
 
     const [alreadySubmit, setAlreadySubmit] = useState([]);
 
@@ -39,7 +39,7 @@ const ViewAssignment = () => {
         console.log(upDescription, link)
 
 
-        const submittedAssignment = { assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail, upDescription, link, currentUserEmail,examineeName }
+        const submittedAssignment = { assignmentId, title, formattedDueDate, imageUrl, difficulty, marks, description, creatorEmail, upDescription, link, currentUserEmail, examineeName, status, examinersFeedback, obtainedMarks }
 
         console.log(submittedAssignment)
 
@@ -119,7 +119,7 @@ const ViewAssignment = () => {
                         })
                 }
 
-                else{
+                else {
                     Swal.fire({
                         title: 'Error!',
                         text: 'You dont have permission to delete this assignment',
