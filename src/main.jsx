@@ -40,11 +40,11 @@ const router = createBrowserRouter([
       },
       {
         path: "create-assignment",
-        element: <CreateAssignment></CreateAssignment>
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
       },
       {
         path: "submitted-assignment",
-        element: <SubmittedAssignment></SubmittedAssignment>,
+        element: <PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/submitted')
       },
       {
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-assignment",
-        element: <MyAssignment></MyAssignment>
+        element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>
       }
     ]
   },

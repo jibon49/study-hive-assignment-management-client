@@ -27,23 +27,24 @@ const SubmittedAssignment = () => {
 
         console.log(assignment, marks, examinersFeedback)
 
-        fetch(`http://localhost:5000/submitted/${id}`,{
-            method:"PATCH",
-            headers:{
-                'content-type':'application/json'
+        fetch(`http://localhost:5000/submitted/${id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify({status:'confirmed', obtainedMarks:marks, 
-            examinersFeedback:examinersFeedback
+            body: JSON.stringify({
+                status: 'confirmed', obtainedMarks: marks,
+                examinersFeedback: examinersFeedback
             })
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            if(data.modifiedCount > 0){
-                const remaining = submittedAssignments.filter(submitted =>submitted._id !==id )
-                setUnConfirmedAssignment(remaining)
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    const remaining = submittedAssignments.filter(submitted => submitted._id !== id)
+                    setUnConfirmedAssignment(remaining)
+                }
+            })
 
     }
 
@@ -92,7 +93,7 @@ const SubmittedAssignment = () => {
                                                     </button>
 
 
-                                                    <form onSubmit={(e)=>handleSubmitModal(e, assignment)}>
+                                                    <form onSubmit={(e) => handleSubmitModal(e, assignment)}>
                                                         <div className="form-control mb-5">
                                                             <label className="label">
                                                                 <span className="text-xl font-semibold">Google Drive Link (PDF)</span>

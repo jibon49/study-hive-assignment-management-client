@@ -53,7 +53,9 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
         >All Assignment</NavLink></li>
-        <li><NavLink to='/my-Assignment'
+
+        
+        <li><NavLink to='/my-assignment'
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-[#16eead] font-bold" : ""
             }
