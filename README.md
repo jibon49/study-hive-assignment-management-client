@@ -17,7 +17,7 @@ The core features of this project is
 
 ## 🔗 Links
 Live link
-(https://katherineoelsner.com/)
+https://group-assignment-e7f79.web.app/
 
 serversite github
 (https://github.com/Porgramming-Hero-web-course/b8a11-server-side-jibon49)

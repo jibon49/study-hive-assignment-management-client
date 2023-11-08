@@ -28,7 +28,7 @@ const SubmittedAssignment = () => {
 
         console.log(assignment, marks, examinersFeedback)
 
-        fetch(`http://localhost:5000/submitted/${id}`,
+        fetch(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/submitted/${id}`,
         
         {
             method: "PATCH",

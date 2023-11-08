@@ -15,7 +15,7 @@ const MyAssignment = () => {
 
     const [myAssignments, setMyAssignments] = useState([])
 
-    const url = `http://localhost:5000/my-assignment?email=${email}`
+    const url = `online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/my-assignment?email=${email}`
 
     useEffect(() => {
 

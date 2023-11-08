@@ -45,23 +45,23 @@ const router = createBrowserRouter([
       {
         path: "submitted-assignment",
         element: <PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/submitted',{credentials:'include'})
+        loader: () => fetch('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/submitted',{credentials:'include'})
       },
       {
         path: "all-assignment",
         element: <AllAssignment></AllAssignment>,
-        loader: () => fetch('http://localhost:5000/assignments')
+        loader: () => fetch('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/assignments')
       },
       {
         path: "update-assignment/:id",
         element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/assignment/${params.id}`)
 
       },
       {
         path: "view-assignment/:id",
         element: <PrivateRoute><ViewAssignment></ViewAssignment></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/assignment/${params.id}`)
 
       },
       {

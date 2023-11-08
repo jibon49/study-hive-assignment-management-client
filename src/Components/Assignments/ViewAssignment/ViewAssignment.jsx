@@ -21,7 +21,7 @@ const ViewAssignment = () => {
     const [alreadySubmit, setAlreadySubmit] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/submitted',
+        fetch('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/submitted',
         {credentials:"include"}
         )
             .then(res => res.json())
@@ -70,7 +70,7 @@ const ViewAssignment = () => {
             })
         }
         else {
-            axios.post('http://localhost:5000/submitted', submittedAssignment)
+            axios.post('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/submitted', submittedAssignment)
                 .then(data => {
                     console.log(data.data)
 
@@ -104,7 +104,7 @@ const ViewAssignment = () => {
             if (result.isConfirmed) {
 
                 if (currentUserEmail === creatorEmail) {
-                    fetch(`http://localhost:5000/assignments/${_id}`, {
+                    fetch(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/assignments/${_id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())
