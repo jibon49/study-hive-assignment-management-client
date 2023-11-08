@@ -3,6 +3,7 @@ import { app } from "../firebase_config";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 export const AuthContext = createContext(null)
 
@@ -44,7 +45,7 @@ const AuthProviders = ({ children }) => {
         })
         
         return unSubscribe;
-    }, [])
+    }, [user?.email])
 
 
 
@@ -94,6 +95,10 @@ const AuthProviders = ({ children }) => {
             {children}
         </AuthContext.Provider>
     );
+};
+
+AuthProviders.propTypes = {
+    children: PropTypes.object
 };
 
 export default AuthProviders;

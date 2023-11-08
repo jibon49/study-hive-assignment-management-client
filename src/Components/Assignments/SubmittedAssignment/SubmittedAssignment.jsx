@@ -1,12 +1,13 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../../AuthProviders/AuthProviders";
+import { useState } from "react";
+
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const SubmittedAssignment = () => {
 
 
-    const { user } = useContext(AuthContext)
+
 
     const submittedAssignments = useLoaderData();
 
@@ -28,7 +29,7 @@ const SubmittedAssignment = () => {
         console.log(assignment, marks, examinersFeedback)
 
         fetch(`http://localhost:5000/submitted/${id}`,
-        {credentials:"include"},
+        
         {
             method: "PATCH",
             headers: {
@@ -43,6 +44,13 @@ const SubmittedAssignment = () => {
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
+                    
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Assignment marked successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
                     const remaining = submittedAssignments.filter(submitted => submitted._id !== id)
                     setUnConfirmedAssignment(remaining)
                 }
@@ -55,9 +63,9 @@ const SubmittedAssignment = () => {
             <div className="p-8 rounded-md shadow-md">
                 <h2 className="text-white text-2xl font-semibold mb-4">Submitted Assignments</h2>
                 <div className="overflow-x-auto">
-                    <table className="min-w-full border border-white">
+                    <table className="text-center text-base table">
                         <thead>
-                            <tr className="bg-indigo-500 text-white">
+                            <tr className="bg-indigo-500 text-white text-lg">
                                 <th className="py-2 px-4">Assignment Title</th>
                                 <th className="py-2 px-4">Marks</th>
                                 <th className="py-2 px-4">Examinee Name</th>
@@ -72,7 +80,9 @@ const SubmittedAssignment = () => {
                                     <tr key={assignment._id} className="text-center">
                                         <td className="py-2 px-4">{assignment.title}</td>
                                         <td className="py-2 px-4">{assignment.marks}</td>
-                                        <td className="py-2 px-4">{assignment.examineeName}</td>
+                                        <td className="py-2 px-4">{assignment.examineeName} <br />
+                                        {assignment.currentUserEmail}
+                                        </td>
                                         <td className="py-2 px-4 text-red-500">{assignment.status}</td>
                                         <td className="py-2 px-4">
                                             <button

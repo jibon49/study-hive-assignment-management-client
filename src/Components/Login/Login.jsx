@@ -38,7 +38,6 @@ const Login = () => {
                 confirmButtonText: 'Cool'
               })
             navigate(location?.state ? location.state : '/')
-            // token
 
             
             
@@ -99,7 +98,7 @@ const Login = () => {
                             <p className="font-semibold text-center mt-7">Don’t Have An Account ? <span className="text-[#eb1c3a]"><NavLink to='/register'>Register</NavLink></span></p>
                         </form>
                         <div className="p-10 w-2/3 mx-auto mt-6">
-                            <button onClick={handleGoogleSignIn} className=" btn btn-outline w-full mb-2">
+                            <button onClick={handleGoogleSignIn} className=" btn btn-outline md:text-lg w-full mb-2">
                                 <FaGoogle className=' text-blue-500 text-lg'></FaGoogle>Login with
                                 Google
                             </button>
