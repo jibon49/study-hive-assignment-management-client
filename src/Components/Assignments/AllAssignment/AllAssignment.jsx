@@ -23,7 +23,7 @@ const AllAssignment = () => {
 
 
     useEffect(() => {
-        axios.get(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/pagination-assignments?page=${currentPage}&size=${itemsPerPage}`,
+        axios.get(`${import.meta.env.VITE_API_BASE_URL}/pagination-assignments?page=${currentPage}&size=${itemsPerPage}`,
         {withCredentials:true}
         )
             .then(data => {

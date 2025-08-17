@@ -28,7 +28,7 @@ const SubmittedAssignment = () => {
 
         console.log(assignment, marks, examinersFeedback)
 
-        fetch(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/submitted/${id}`,
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/submitted/${id}`,
         
         {
             method: "PATCH",

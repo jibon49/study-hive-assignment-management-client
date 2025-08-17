@@ -24,7 +24,7 @@ const AuthProviders = ({ children }) => {
             console.log(currentUser);
 
             if (currentUser) {
-                axios.post('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/jwt', loggedEmail,
+                axios.post(`${import.meta.env.VITE_API_BASE_URL}/jwt`, loggedEmail,
                     { withCredentials: true })
                     .then(res => {
                         console.log(res.data.success)
@@ -36,7 +36,7 @@ const AuthProviders = ({ children }) => {
             }
 
             else{
-                axios.post('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/logout',loggedEmail, {withCredentials:true})
+                axios.post(`${import.meta.env.VITE_API_BASE_URL}/logout`,loggedEmail, {withCredentials:true})
                 .then(res=>{
                     console.log(res)
                 })

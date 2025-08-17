@@ -41,7 +41,7 @@ const CreateAssignment = () => {
         console.log(createAssignment);
 
 
-        axios.post('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/create-assignment', createAssignment)
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/create-assignment`, createAssignment)
             .then(data => {
                 console.log(data.data);
                 if (data.data.insertedId) {

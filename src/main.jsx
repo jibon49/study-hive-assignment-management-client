@@ -45,23 +45,23 @@ const router = createBrowserRouter([
       {
         path: "submitted-assignment",
         element: <PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
-        loader: () => fetch('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/submitted',{credentials:'include'})
+        loader: () => fetch(`${import.meta.env.VITE_API_BASE_URL}/submitted`,{credentials:'include'})
       },
       {
         path: "all-assignment",
         element: <AllAssignment></AllAssignment>,
-        loader: () => fetch('online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/assignments')
+        loader: () => fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments`)
       },
       {
         path: "update-assignment/:id",
         element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-        loader: ({ params }) => fetch(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_BASE_URL}/assignment/${params.id}`)
 
       },
       {
         path: "view-assignment/:id",
         element: <PrivateRoute><ViewAssignment></ViewAssignment></PrivateRoute>,
-        loader: ({ params }) => fetch(`online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_BASE_URL}/assignment/${params.id}`)
 
       },
       {

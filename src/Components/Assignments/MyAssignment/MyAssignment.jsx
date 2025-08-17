@@ -15,7 +15,7 @@ const MyAssignment = () => {
 
     const [myAssignments, setMyAssignments] = useState([])
 
-    const url = `online-group-study-assignment-server-rcov966xi-jibon49.vercel.app/my-assignment?email=${email}`
+    const url = `${import.meta.env.VITE_API_BASE_URL}/my-assignment?email=${email}`
 
     useEffect(() => {
 
