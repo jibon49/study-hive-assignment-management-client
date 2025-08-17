@@ -45,7 +45,24 @@ const router = createBrowserRouter([
       {
         path: "submitted-assignment",
         element: <PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
-        loader: () => fetch(`${import.meta.env.VITE_API_BASE_URL}/submitted`,{credentials:'include'})
+        loader: async () => {
+          try {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/submitted`, {
+              credentials: 'include'
+            });
+            
+            if (!response.ok) {
+              console.warn(`API responded with status: ${response.status}`);
+              return [];
+            }
+            
+            const data = await response.json();
+            return Array.isArray(data) ? data : [];
+          } catch (error) {
+            console.error('Error loading submitted assignments:', error);
+            return [];
+          }
+        }
       },
       {
         path: "all-assignment",
