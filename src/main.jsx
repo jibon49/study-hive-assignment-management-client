@@ -50,7 +50,19 @@ const router = createBrowserRouter([
       {
         path: "all-assignment",
         element: <AllAssignment></AllAssignment>,
-        loader: () => fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments`)
+        loader: async () => {
+          try {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments`);
+            if (!response.ok) {
+              throw new Error('Failed to fetch assignments');
+            }
+            const data = await response.json();
+            return Array.isArray(data) ? data : [];
+          } catch (error) {
+            console.error('Error loading assignments:', error);
+            return [];
+          }
+        }
       },
       {
         path: "update-assignment/:id",

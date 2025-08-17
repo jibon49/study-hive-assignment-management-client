@@ -5,16 +5,16 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const AllAssignment = () => {
 
-    const assignments = useLoaderData();
-    const [allAssignments, setAllAssignments] = useState(assignments)
+    const assignments = useLoaderData() || [];
+    const [allAssignments, setAllAssignments] = useState([])
 
     const [selectedDifficulty, setSelectedDifficulty] = useState('All');
-    const [filteredAssignment, setFilteredAssignment] = useState(assignments);
+    const [filteredAssignment, setFilteredAssignment] = useState([]);
 
 
 
     const [itemsPerPage, setItemsPerPage] = useState(10);
-    const count = assignments.length
+    const count = Array.isArray(assignments) ? assignments.length : 0;
     const numberOfPages = Math.ceil(count / itemsPerPage)
     const pages = [...Array(numberOfPages).keys()];
 
@@ -27,7 +27,17 @@ const AllAssignment = () => {
         {withCredentials:true}
         )
             .then(data => {
-                setAllAssignments(data.data)
+                // Ensure data.data is an array before setting it
+                if (Array.isArray(data.data)) {
+                    setAllAssignments(data.data)
+                } else {
+                    console.error('API response is not an array:', data.data);
+                    setAllAssignments([]);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching assignments:', error);
+                setAllAssignments([]);
             })
     }, [currentPage, itemsPerPage])
 
@@ -58,10 +68,12 @@ const AllAssignment = () => {
 
     useEffect(() => {
         if (selectedDifficulty === 'All') {
-            setFilteredAssignment(allAssignments)
+            setFilteredAssignment(Array.isArray(allAssignments) ? allAssignments : [])
         }
         else {
-            const filteredAss = allAssignments.filter(ass => ass.difficulty === selectedDifficulty);
+            const filteredAss = Array.isArray(allAssignments) 
+                ? allAssignments.filter(ass => ass.difficulty === selectedDifficulty)
+                : [];
             setFilteredAssignment(filteredAss);
         }
 
@@ -71,7 +83,7 @@ const AllAssignment = () => {
         <div>
 
             <div className="flex mx-auto items-center max-w-6xl justify-between mb-4 mt-20">
-                <h1 className="text-3xl font-bold">Available assignments: <span className="text-indigo-500">{assignments.length}</span></h1>
+                <h1 className="text-3xl font-bold">Available assignments: <span className="text-indigo-500">{count}</span></h1>
                 <div>
                     <label className="mr-2 font-bold">Filter by Difficulty:</label>
                     <select
@@ -88,34 +100,40 @@ const AllAssignment = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
                 {
-                    filteredAssignment.map(assignment =>
-                        <div key={assignment._id} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-8">
-                            <div className="flex items-center justify-center p-6">
-                                <img className="h-56 w-auto lg:w-80 rounded-xl object-cover" src={assignment.imageUrl} alt="Assignment Thumbnail" />
+                    Array.isArray(filteredAssignment) && filteredAssignment.length > 0 ? (
+                        filteredAssignment.map(assignment =>
+                            <div key={assignment._id} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-8">
+                                <div className="flex items-center justify-center p-6">
+                                    <img className="h-56 w-auto lg:w-80 rounded-xl object-cover" src={assignment.imageUrl} alt="Assignment Thumbnail" />
+                                </div>
+                                <div className="p-6">
+                                    <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{assignment.title}</div>
+                                    <div className="mt-2">
+                                        <span className="text-gray-500">Marks:</span>
+                                        <span className="text-sm font-medium text-gray-800 ml-2">{assignment.marks}</span>
+                                    </div>
+                                    <div className="mt-2">
+                                        <span className="text-gray-500">Difficulty:</span>
+                                        <span className="text-sm capitalize font-medium text-gray-800 ml-2">{assignment.difficulty}</span>
+                                    </div>
+                                    <div className="mt-4 flex justify-between">
+                                        <Link to={`/view-assignment/${assignment._id}`}>
+                                            <button className="bg-[#16eead] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
+                                                View Assignment
+                                            </button>
+                                        </Link>
+                                        <Link to={`/update-assignment/${assignment._id}`}>
+                                            <button className="bg-[#16eead] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
+                                                Update Assignment
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="p-6">
-                                <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{assignment.title}</div>
-                                <div className="mt-2">
-                                    <span className="text-gray-500">Marks:</span>
-                                    <span className="text-sm font-medium text-gray-800 ml-2">{assignment.marks}</span>
-                                </div>
-                                <div className="mt-2">
-                                    <span className="text-gray-500">Difficulty:</span>
-                                    <span className="text-sm capitalize font-medium text-gray-800 ml-2">{assignment.difficulty}</span>
-                                </div>
-                                <div className="mt-4 flex justify-between">
-                                    <Link to={`/view-assignment/${assignment._id}`}>
-                                        <button className="bg-[#16eead] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
-                                            View Assignment
-                                        </button>
-                                    </Link>
-                                    <Link to={`/update-assignment/${assignment._id}`}>
-                                        <button className="bg-[#16eead] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-80">
-                                            Update Assignment
-                                        </button>
-                                    </Link>
-                                </div>
-                            </div>
+                        )
+                    ) : (
+                        <div className="col-span-full text-center py-8">
+                            <p className="text-gray-500 text-lg">No assignments found.</p>
                         </div>
                     )
                 }
