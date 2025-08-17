@@ -98,7 +98,7 @@
    Create a `.env` file in the root directory:
    ```env
    # Backend API Configuration
-   VITE_API_BASE_URL=http://localhost:5000
+   VITE_API_BASE_URL=online-group-study-assignment-server-n2txtzlzh-jibon49.vercel.app
    
    # Firebase Configuration
    VITE_FIREBASE_API_KEY=your_firebase_api_key
