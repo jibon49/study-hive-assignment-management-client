@@ -53,13 +53,17 @@ const router = createBrowserRouter([
         loader: async () => {
           try {
             const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/assignments`);
+            
             if (!response.ok) {
-              throw new Error('Failed to fetch assignments');
+              console.warn(`API responded with status: ${response.status}`);
+              return [];
             }
+            
             const data = await response.json();
             return Array.isArray(data) ? data : [];
           } catch (error) {
             console.error('Error loading assignments:', error);
+            // Return empty array to prevent app crash
             return [];
           }
         }
